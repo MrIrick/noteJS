@@ -1,0 +1,142 @@
+db.createCollection(collectionName, optionObject[{},{}]) //一般不用这个创建集合，使用db的insert命令会自动创建一个collection
+
+//  
+
+db.emp.insert({name:"zhangsan", age:12, gender:"male"});
+
+//查看有多少数据库   数据库列表
+show dbs ;
+
+//查看有多少表（集合）collection
+show collections;
+
+//当前所在数据库 
+db.getName();
+db
+
+//数据库切换   也可以用来创建一个新的数据库，如果要切换的数据库不存在，
+//db会自动创建一个数据库,如果在数据库列表中不显示，至少插入一个collection
+use hello
+
+//删除数据库   切换到要删除的数据库执行命令
+db.dropDatabase();
+
+//创建表(集合)
+MongoDB是基于文档的，所以没有列名的约束，即使每个document中的数据个数和类型都不同，也是可以插入的
+
+db.createCollection("user", [{}{}{}{}]);//每一个json对象都是一条数据
+
+//删除表(集合)
+db.user.drop();
+
+//插入一条数据   一般不需要显式创建表（集合），当插入一条数据，若这个集合并不存在，那么MongoDB会自动创建集合并插入一条数据
+db.user.insert({name:"zhangsan", age:23, gender:"male", birthday:"1989-11-23"});
+
+//查询数据   MongdoDB投影的意义是只选择需要的数据，而不是整个文档的数据，若文档有5个字段，只需要选择三个显示
+//投影可以筛选需要呈现的数据，若设置1，那么所有需要设置的数据都要设置1
+db.user.find({name:"zhangsan", age:33},{_id:0, name:1});
+
+//条件查询
+db.user.find({age:{$gt:18}}, {_id:0}).sort({age:1});
+
+//有时候我们不需要所有数据都返回，只需要某一条数据
+db.user.findOne({name:"zhangsan", age:33}, {_id:0, name:1});
+
+//数据显示不友好，不易阅读，可以使用结构化查询pretty();
+db.user.find({name:"zhangsan",age:33},{_id:0, name:1}).pretty();
+
+$all(数组中含有那些值) 查询字段本身是数组类型
+$size 表示数组长度
+
+$exists查询某字段是否存在
+$gt	大于
+
+$gte	大于等于
+
+$lt	小于
+
+$lte	小于等于
+
+$ne	不等于
+
+$in, $nin标识字段的取值范围
+$or, $and 后面是一个数组，数组中的条件是逻辑关系
+db.jobs.find({min_salary:{$not:{$gt:10000}}})
+db.jobs.find({$nor:[{job_id:'GG'}, {job_id:'IT_PROG'}]})
+
+
+//数据库的更新和删除最好给出条件，否则会将所有的数据做出更新和删除
+//MongoDb数据库更新
+//插入内嵌文档，必须加引号
+db.user.update({查询条件},{$set:{更新字段}},{upsert, multi});
+
+db.user.update({name:"zhangsan"}, {$set:{age:55}},{true, true});
+db.user.save({name:"lisi", age:44,gender:"male"});
+$inc	递增
+$rename	重命名field
+$set	修改某个 field 的值
+$unset	删除 field 
+$min	比较并取得最小值
+$max	比较并取得最大值
+
+
+//MongoDB数据库删除数据    数据库为了防止用户误删数据，会要求用户设置查询条件，若打算一次性全部删除，那么查询条件设为｛｝
+db.user.remove({查询条件});
+
+
+//limit(), skip(), sort()是游标对象中的三个重要方法，当使用find方法查询集合时，会返回一个所有文档的一个游标
+//游标指向当前集合中的首地址
+
+
+
+//脚本动态生成唯一id字段 counter{"_id":"productid",sequence_value:0};
+function getNextSequenceValue(sequenceName){
+   var sequenceDocument = db.counters.findAndModify(
+      {
+         query:{_id: sequenceName },
+         update: {$inc:{sequence_value:1}},
+         new:true
+      });
+   return sequenceDocument.sequence_value;
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+		固定定位IE6 不支持
+		 * 注意：IE6中并不支持BFC，IE6虽然不支持BFC，但是它里边有一个和BFC类似的特性:
+		 * 	has layout，这个也是一个隐藏属性，它的特点和BFC类似，
+		 * 所以在IE6中可以通过开启has layout来解决高度塌陷问题
+		 * 
+		 * 开启方式：
+		 * 	副作用最小的方式，为元素添加一个属性 zoom:1
+		 * 
+		 * 解决方案一：
+		 * 	结论，在其他浏览器中使用：overflow:hidden
+		 * 		在IE中使用：             zoom:1
+		 也可以使用清除浮动clear来解决高度塌陷问题
+		 * after和before伪元素在IE7以下的浏览器中不支持，所以以上方式并不适用于这些浏览器
+		 依然使用开启bfc的模式来解决高度塌陷问题
+
+				/**
+				 * IE8以下不支持opacity属性
+				 * 	filter: alpha(opacity=透明度);
+				 * filter中的透明图，它需要一个0-100的值
+				 * 	0表示全透明
+				 * 	100表示全不透明
+				 * 
+				 */
+				filter: alpha(opacity=50);
+* ::selection伪类用来表示文字的选中的状态
+* ::selection这个伪类火狐不支持，它使用的是另一个比较特殊的名字::-moz-selection
+p::-moz-selection{
+			background-color: yellow;
+		}
+
+Chrome浏览器支持的最小字体是12px
+
+
+在ie6中，元素的浮动会导致双倍边距问题
+可以使用display:inline来解决，也可以使用属性hack，将边距减半
+
+currentStyle是ie浏览器独有的对象属性，其他浏览器都不支持，通过该属性获取当前元素所应用所有的css属性，会获得对应属性的默认值
+getComputedStyle(对象, null);方法ie9+以上浏览器和其他浏览器支持
+
+event = event || window.event ;
+
+* currentStyle这个属性是IE中独有的，其他的浏览器不支持
+* getComputedStyle()也可以获取到样式信息，它是window对象的方法我们可以直接使用，
+* 在IE8及以下的浏览器中需要使用currentStyle属性
+* 在其他的浏览器中需要使用getComputedStyle()方法
+* 通过getComputedStyle()获取样式，如果元素宽高没有设置值，则会自动计算出相应的值
+* 通过currentStyle获取样式，如果没有设置值，则或获取到属性的默认值
+
+
+在鼠标滚动轮的事件onmousewheel中,判断鼠标的上下滚动
+火狐中不支持event.wheelDelta属性,,>0向上滚滚，<0向下滚
+火狐中使用event.detail属性，方向与值正好相反
+火狐中的事件也不叫onmousewheel,而是叫DOMMouseScroll，只能通过监听器的方式绑定
+detail 和 wheelDelta值与方向正好相反
+
+ * 通过addEventListener绑定的响应函数，不能通过return false来取消默认行为,
+* 而是通过事件对象的preventDefault()方法来取消默认行为
+* 但是IE8及以下的浏览器不支持preventDefault()方法
+
+
+在块儿元素中设置行高使字体垂直居中，
+line-height和字体的简写样式会冲突，导致文字不能垂直居中，解决方式，字体样式不要简写
+
+
+			
+CSS Hack,它是通过一些特殊的语法来为我们解决浏览器之间的兼容性问题。			
+		<!-- 注释Hack 
+			注释Hack只支持IE，而IE10和IE11已经不支持注释Hack
+		-->
+		属性hack
+		*colo:red ;ie7以及以下浏览器
+		_color:red ;ie6以及以下浏览器
+
+		在IE6中不支持PNG24格式图片的透明背景，如果出现透明背景在IE6中将不能正常显示
+			
+			PNG格式：
+				PNG8：质量较差，但是IE6支持
+				PNG24：质量好，但是IE6不支持
+				
+			方式一：可以将png24转换为png8在使用，但是它会损失一些清晰度
+			方式二：使用JavaScript来解决问题
+
+key 的事件只能注册到文档对象上面，或者form表单字段上面
+
+
+ie6,7不支持固定定位，可以通过absolute来模拟固定定位的实现，将文档流的滚动条禁用掉
+
+
+
+
+
+
+

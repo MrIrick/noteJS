@@ -1,0 +1,159 @@
+获得内容 - text()、html() 以及 val()
+三个简单实用的用于 DOM 操作的 jQuery 方法：
+
+text() - 设置或返回所选元素的文本内容 
+html() - 设置或返回所选元素的内容（包括 HTML 标记） 
+val() - 设置或返回表单字段的值 
+
+
+设置内容 - text()、html() 以及 val()
+我们将使用前一章中的三个相同的方法来设置内容：
+
+text() - 设置或返回所选元素的文本内容 
+html() - 设置或返回所选元素的内容（包括 HTML 标记） 
+val() - 设置或返回表单字段的值 
+
+
+添加新的 HTML 内容
+我们将学习用于添加新内容的四个 jQuery 方法：
+
+元素内
+append() - 在被选元素的结尾插入内容 
+prepend() - 在被选元素的开头插入内容 
+元素外
+after() - 在被选元素之后插入内容 
+before() - 在被选元素之前插入内容 
+
+
+删除元素/内容
+如需删除元素和内容，一般可使用以下两个 jQuery 方法：
+
+remove() - 删除被选元素（及其子元素） 
+empty() - 从被选元素中删除子元素 
+
+
+
+jQuery 操作 CSS
+jQuery 拥有若干进行 CSS 操作的方法。我们将学习下面这些：
+
+addClass() - 向被选元素添加一个或多个类 
+removeClass() - 从被选元素删除一个或多个类 
+toggleClass() - 对被选元素进行添加/删除类的切换操作 
+css() - 设置或返回样式属性 
+
+
+jQuery 尺寸 方法
+jQuery 提供多个处理尺寸的重要方法：
+
+width() 
+height() 
+innerWidth() 
+innerHeight() 
+outerWidth() 
+outerHeight() 
+
+
+width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）。
+height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）。
+
+
+innerWidth() 方法返回元素的宽度（包括内边距）。
+innerHeight() 方法返回元素的高度（包括内边距）。
+
+
+outerWidth() 方法返回元素的宽度（包括内边距和边框）。
+outerHeight() 方法返回元素的高度（包括内边距和边框）。
+
+
+outerWidth(true) 方法返回元素的宽度（包括内边距、边框和外边距）。
+outerHeight(true) 方法返回元素的高度（包括内边距、边框和外边距）。
+
+
+client (file://OCEGDJYWCSD0SDQ/client)
+
+jQuery遍历元素
+
+向上遍历 DOM 树
+这些 jQuery 方法很有用，它们用于向上遍历 DOM 树：
+parent() 方法返回被选元素的直接父元素。
+parents() 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)。
+	  $("span").parents("ul");
+parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素。
+
+
+向下遍历 DOM 树
+下面是两个用于向下遍历 DOM 树的 jQuery 方法：
+
+children() 方法返回被选元素的所有直接子元素。该方法只会向下一级对 DOM 树进行遍历
+find() 方法返回被选元素的后代元素，一路向下直到最后一个后代。
+
+在 DOM 树中水平遍历
+有许多有用的方法让我们在 DOM 树进行水平遍历：
+
+
+
+siblings() 方法返回被选元素的所有同胞元素。不分前后
+next() 方法返回被选元素的下一个同胞元素。该方法只返回一个元素
+nextAll() 方法返回被选元素的所有跟随的同胞元素
+nextUntil() 方法返回介于两个给定参数之间的所有跟随的同胞元素。
+prev() 
+prevAll() 
+prevUntil() 
+
+prev(), prevAll() 以及 prevUntil() 方法的工作方式与上面的方法类似，只不过方向相反而已：它们返回的是前面的同胞元素
+
+缩写搜索元素的范围
+
+对返回的元素集合进行过滤
+三个最基本的过滤方法是：first(), last() 和 eq()，它们允许您基于其在一组元素中的位置来选择一个特定的元素。
+
+first() 方法返回被选元素集合中的首个元素。
+last() 方法返回被选元素集合中的最后一个元素。
+eq() 方法返回被选元素集合中带有指定索引号的元素。
+filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。$("p").filter(".intro");
+not() 方法返回不匹配标准的所有元素。
+$("p").not(".intro");
+
+设置事件委托: $(parentSelector).delegate(childrenSelector, eventName, callback)
+移除事件委托: $(parentSelector).undelegate(eventName);
+
+jQuery validation 
+{
+	rules:
+	{
+		元素name属性:校验规则
+	}
+	messaes:
+	{
+		校验规则:提示消息
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

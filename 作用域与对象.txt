@@ -1,0 +1,305 @@
+对象是一组数据和方法的组合，在其他面向对象的语言中叫包装
+对象是一种特殊的数据类型，所以不具备作用域的范围，他在整个作用域中参与运算
+
+作用域主要针对变量的执行环境。变量遵循执行环境的上级搜索
+
+对象的生成方式：
+-1、属性追加
+
+	var object = new Object();
+	object.username = "zhangsan";
+	object.password = "123";
+	object.getInfo = function()
+	{
+		alert(this.password);
+	}
+-2、工厂方式
+	
+	function createObject()
+	{
+		var object = new Object();
+		object.username = "zhangsan" ;
+		object.password = "123" ;
+		object.getInfo = function()
+		{
+			alert(this.username);
+		}
+		return object ;
+	}
+	
+	var obj1 = createObject();
+	var obj2 = createObject();
+	
+-3、构造函数式
+	
+	function Person(username, password)
+	{
+		this.username = username ;
+		this.password = password ;
+		this.getInfo = function()
+		{
+			alert(this.username);
+		}
+		
+	}
+	
+	var person1 = new Person("zhangsan", 123);
+	var person2 = new Person("lisi",123);
+	
+-4、原型方式(使用原型的方式生成的构造函数不论生成多少个对象，都会公用一份成员变量和方法)
+	
+	function Person(){} ;
+	
+	Person.prototype.username = "zhangsan" ;
+	Person.prototype.password = "123" ;
+	
+	Person.prototype.getInfo = function()
+	{
+		alert(this.username);
+	}
+	var person = new Person();
+	person.getInfo();
+	
+	
+-5 、使用混合方式生成对象
+	function Person(username, password)
+	{
+		this.username = username ;
+		this.password = password ;
+	}
+	
+	Person.prototype.getInfo = function()
+	{
+		alert(this.username);
+	}
+	
+	var person = new Person();
+	
+	person.getInfo();
+	
+-6、使用动态原型方式生成对象
+	
+	function Person(username, password)
+	{
+		this.username = username ;
+		this.password = password ;
+		
+		if(Person.flag == "undefined")
+		{
+			Person.prototype.getInfo = function()
+			{
+				alert(this.username);
+			}
+			Person.falg = true;
+		}
+	}
+-7、对象字面量
+	var person = {
+		name : 'zhangsan', 
+		age : 22,
+		sayName : function(){console.log(this.name)}
+	}
+	
+	
+对象的继承：
+-1、对象冒充
+
+		function Parent(username)
+		{
+			this.username = username ;
+			this.sayHello = function()
+			{
+				alert(this.username);
+			}
+		}
+		
+		function Child(username, password)
+		{
+			this.method = Parent ;
+			this.method(username);
+			delete method ;
+			
+			this.password = password ;
+			this.sayWorld = function()
+			{
+				alert(this.password);
+			}
+		}
+		
+		var parent = new Parent("zhangsan");
+		parent.sayHello();
+		
+		var child = new Child("lisi", 123);
+		child.sayHello();
+		child.sayWorld();
+	
+2、使用call方法
+	
+		function Parent(username)
+		{
+			this.username = username ;
+			this.sayHello = function()
+			{
+				alert(this.username);
+			}
+		}
+		function Child(username, password)
+		{
+			Parent.call(this, username) ;
+			
+			this.ppasword = password ;
+			this.sayWorld = function()
+			{
+				alert(this.password);
+			}
+		}
+		
+		Parent parent = new Parent();
+		parent.sayHello();
+		
+		Child child = new Child();
+		child.sayHello();
+		child.sayWorld();
+		
+		function test(str)
+		{
+			alert(this.username + " : " + str);
+		}
+		
+		var object = new Object() ;
+		object.username = "zhangsan" ;
+		
+		test.call(object,"你好");
+-3、使用apply方法
+		
+		function Parent(username)
+		{
+			this.username = username ;
+			this.sayHello = function()
+			{
+				alert(this.username);
+			}
+		}
+		function Child(username,password)
+		{
+			Parent.apply(this, new Array(username));
+			
+			this.password = password ;
+			this.sayWorld = function()
+			{
+				alert(this.password);
+			}
+		}
+		var parent = new Parent("zhangsan");
+		
+		parent.sayHello();
+		
+		var child = new Child("lisi", 123);
+		child.sayHello();
+		child.sayWorld();
+	
+-4、使用原型的方式实现对象的继承
+	
+		function Parent()
+		{
+			
+		}
+		
+		Parent.prototype.username = "zhangsan" ;
+		Parent.prototype.sayHello = function()
+		{
+			alert(username);
+		}
+		
+		
+		function Child(){};
+		
+		Child.prototype = new Parent();
+		
+		Child.prototype.password = "123" ;
+		Child.protorype.sayWorld = function()
+		{
+			alert(this.password);
+		}
+		
+		
+		var parent = new Parent();
+		parent.sayHello();
+		
+		var child = new Child();
+		child.sayHello();
+		child.sayWorld();
+		
+-5、 使用混合方式实现对象的继承
+	
+		function Parent(username)
+		{
+			this.username = username ;
+		}
+		Parent.ptototype.sayHello = function()
+		{
+			alert(this.username);
+		}
+		
+		function Child(username, password)
+		{
+			Parent.call(this,username);
+			this.password=password
+		} 
+		
+		Child.prototype = new Parent();
+		Child.prototype.sayWorld = function()
+		{
+			alert(this.password);
+		}
+		
+		
+		var parent = new Parent("zhangsan");
+		parent.sayHello();
+		
+		var child = new Child("lisi",123);
+		child.sayHello();
+		child.sayWorld();
+		
+		
+注意： 通过赋值的方式访问原型中的属性或者方法，js引擎不会搜索原型链，而是在对象上面追加属性或者方法
+//function 函数的三种生成方式
+	//对象的5中生成方式
+		/*
+			1、属性追加
+			2、工厂方式
+			3、构造函数式
+			4、原型方式
+			5、混合方式
+			6、动态原型方式
+			7、使用它create方法，克隆对象，本质上把对象将如到生成对象的原型链
+			8、使用assign方法，将后面对象的所有属性都复制到源对象之上
+			9、对象字面量
+
+		除了属性追加和工厂方式，其他生成方式都是函数对象的方式
+
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	
+	
+	

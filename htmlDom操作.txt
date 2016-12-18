@@ -1,0 +1,293 @@
+html文本的每个元素节点都是一个dom对象
+我们可以通过js或者其他编程语言可以对
+每个节点对象的属性和方法操作
+方法是您能够执行的动作（比如添加或修改元素）。
+
+属性是您能够获取或设置的值（比如节点的名称或内容）。
+	HTML DOM 对象 - 方法和属性
+	一些常用的 HTML DOM 方法：
+
+	getElementById(id) - 获取带有指定 id 的节点（元素） 
+	appendChild(node) - 插入新的子节点（元素） 
+	removeChild(node) - 删除子节点（元素）
+	replaceClild(newNode, node)
+	inserBefore(newNode node);
+	一些常用的 HTML DOM 属性：
+
+	innerHTML - 节点（元素）的文本值 
+	innerText - 节点（元素）的文本值 
+	parentNode - 节点（元素）的父节点 
+	childNodes - 节点（元素）的子节点 
+	attributes - 节点（元素）的属性节点 
+DOM属性
+	DOM 根节点
+	这里有两个特殊的属性，可以访问全部文档：
+	document.documentElement - 全部文档 
+	document.body - 文档的主体
+	
+	-1.innerHTML 属性
+		获取元素内容的最简单方法是使用 innerHTML 属性。
+
+		innerHTML 属性对于获取或替换 HTML 元素的内容很有用。
+	
+	-2.nodeName 属性
+		nodeName 属性规定节点的名称。
+
+		nodeName 是只读的 
+		元素节点的 nodeName 与标签名相同 
+		属性节点的 nodeName 与属性名相同 
+		文本节点的 nodeName 始终是 #text 
+		文档节点的 nodeName 始终是 #document 
+		注释：nodeName 始终包含 HTML 元素的大写字母标签名。
+	-3.nodeValue 属性
+		nodeValue 属性规定节点的值。
+		元素节点的 nodeValue 是 undefined 或 null 
+		文本节点的 nodeValue 是文本本身 
+		属性节点的 nodeValue 是属性值
+		
+	-4.nodeType 属性
+		nodeType 属性返回节点的类型。nodeType 是只读的。
+		比较重要的节点类型有：
+
+		元素类型 NodeType 
+		元素   1 
+		属性   2 
+		文本   3 
+		注释   8 
+		文档   9 
+	-5.访问 HTML 元素（节点）
+		访问 HTML 元素等同于访问节点
+
+		您能够以不同的方式来访问 HTML 元素：
+
+		通过使用 getElementById() 方法 
+		通过使用 getElementsByTagName() 方法 
+		通过使用 getElementsByClassName() 方法 
+		通过使用 getElementsByName() 方法
+注释：getElementsByClassName() 在 Internet Explorer 5,6,7,8 中无效。
+	修改 HTML 元素
+	修改 HTML DOM 意味着许多不同的方面：
+
+	改变 HTML 内容 
+	改变 CSS 样式 
+	改变 HTML 属性 
+	创建新的 HTML 元素 
+	删除已有的 HTML 元素 
+	改变事件（处理程序）
+	-A.创建HTML内容
+		<html>
+			<body>
+
+				<p id="p1">Hello World!</p>
+
+			<script>
+				document.getElementById("p1").innerHTML="New text!";
+			</script>
+
+			</body>
+		</html>
+	-B.改变HTML样式
+		<html>
+
+			<body>
+				<p id="p2">Hello world!</p>
+
+			<script>
+				document.getElementById("p2").style.color="blue";
+			</script>
+
+			</body>
+		</html>
+	-C.创建新的HTML元素
+		<div id="d1">
+			<p id="p1">This is a paragraph.</p>
+			<p id="p2">This is another paragraph.</p>
+		</div>
+
+		<script>
+			var para=document.createElement("p");
+			var node=document.createTextNode("This is new.");
+			para.appendChild(node);
+
+			var element=document.getElementById("d1");
+			element.appendChild(para);
+		</script>
+使用事件
+		HTML DOM 允许您在事件发生时执行代码。
+		当HTML元素”有事情发生“时，浏览器就会生成事件：
+		在元素上点击 
+		加载页面 
+		改变输入字段 
+		-a
+		<html>
+			<body>
+				<input type="button" onclick="document.body.style.backgroundColor='lavender';"
+				value="Change background color" />
+			</body>
+		</html>
+		-b
+		<html>
+			<body>
+
+				<p id="p1">Hello world!</p>
+
+			<script>
+				function ChangeText()
+				{
+					document.getElementById("p1").innerHTML="New text!";
+				}
+			</script>
+			<input type="button" onclick="ChangeText()" value="Change text">
+</body>
+</html>
+
+
+添加、删除和替换 HTML 元素。
+	-1.创建新的 HTML 元素 - appendChild()
+	<div id="div1">
+		<p id="p1">This is a paragraph.</p>
+		<p id="p2">This is another paragraph.</p>
+	</div>
+	<script>
+		var para=document.createElement("p");
+		var node=document.createTextNode("This is new.");
+		para.appendChild(node);
+
+		var element=document.getElementById("div1");
+		element.appendChild(para);
+	</script>
+	-2.创建新的 HTML 元素 - insertBefore()
+	<div id="div1">
+		<p id="p1">This is a paragraph.</p>
+		<p id="p2">This is another paragraph.</p>
+	</div>
+
+	<script>
+		var para=document.createElement("p");
+		var node=document.createTextNode("This is new.");
+		para.appendChild(node);
+
+		var element=document.getElementById("div1");
+		var child=document.getElementById("p1");
+		element.insertBefore(para,child);
+	</script>
+	-3.删除已有的 HTML 元素
+	<div id="div1">
+		<p id="p1">This is a paragraph.</p>
+		<p id="p2">This is another paragraph.</p>
+	</div>
+	<script>
+		var parent=document.getElementById("div1");
+		var child=document.getElementById("p1");
+		parent.removeChild(child);
+		
+		var child=document.getElementById("p1");
+		child.parentNode.removeChild(child);
+
+	</script>
+	-4.替换 HTML 元素
+	<div id="div1">
+		<p id="p1">This is a paragraph.</p>
+		<p id="p2">This is another paragraph.</p>
+	</div>
+
+	<script>
+		var para=document.createElement("p");
+		var node=document.createTextNode("This is new.");
+		para.appendChild(node);
+
+		var parent=document.getElementById("div1");
+		var child=document.getElementById("p1");
+		parent.replaceChild(para,child);
+	</script>
+	
+	
+HTML DOM允许JavaScript对 HTML 事件作出反应。。
+	
+	onclick事件属性，允许用户点击元素时触发对应的操作
+	onload 和 onunload 事件
+		当用户进入或离开页面时，会触发 onload 和 onunload 事件。
+
+	onload 事件可用于检查访客的浏览器类型和版本，以便基于这些信息来加载不同版本的网页。
+	onload 和 onunload 事件可用于处理 cookies。
+	onchange 事件
+	
+	onmouseover 和 onmouseout 事件
+	onmouseover 和 onmouseout 事件可用于在鼠标指针移动到或离开元素时触发函数。
+	
+	onmousedown、onmouseup 以及 onclick 事件
+	onmousedown、onmouseup 以及 onclick 事件是鼠标点击的全部过程。首先当某个鼠标按钮被点击时，触发 onmousedown 事件，然后，当鼠标按钮被松开时，会触发 onmouseup 事件，最后，当鼠标点击完成时，触发 onclick 事件。
+
+导航节点关系
+您能够使用三个节点属性：parentNode、firstChild 以及 lastChild ，在文档结构中进行导航。
+
+	<html>
+		<body>
+
+		<p id="intro">Hello World!</p>
+
+	<script>
+		x=document.getElementById("intro");
+		document.write(x.firstChild.nodeValue);
+	</script>
+
+		</body>
+	</html>
+	
+DOM 根节点
+这里有两个特殊的属性，可以访问全部文档：
+
+document.documentElement - 全部文档 
+document.body - 文档的主体 
+
+
+childNodes 和 nodeValue
+除了 innerHTML 属性，您也可以使用 childNodes 和 nodeValue 属性来获取元素的内容。
+	<html>
+		<body>
+
+			<p id="intro">Hello World!</p>
+
+		<script>
+			var txt=document.getElementById("intro").childNodes[0].nodeValue;
+			document.write(txt);
+		</script>
+
+		</body>
+	</html>
+
+document.wirite()可以向页面输出文本也可以输出标签
+document.title
+document.URL
+document.referrer
+document.domain
+
+写入并打开一个新的文档
+			var anotherDoc = document.open("text/html", "replace") ;
+			var txt = "<html><body>学习dom非常有趣<body><html>" ;
+			
+			anotherDoc.write(txt) ;
+			anotherDoc.close();
+			
+返回文档中锚（超链接）的数目
+document.write(document.anchors.length)
+document.forms.length
+
+document.forms[0].name == document.getElementById("form1").name ;
+
+document.images.length 
+
+
+Event对象 
+event.clientX
+event.client-Y
+获得鼠标相对于浏览器可见窗口的横纵坐标
+
+获得屏幕的横纵坐标
+screenX
+screenY
+
+submit() reset() focus() blur() select()
+
+var mylist=document.getElementById("myList")
+document.getElementById("favorite").value=mylist.options[mylist.selectedIndex].text
