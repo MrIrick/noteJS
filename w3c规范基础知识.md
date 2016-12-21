@@ -43,7 +43,7 @@
                 text-decoration underline, throuhg-line, overline下划线，上划线，删除线
                 text-indent 文本缩进
                 text-shadow (x-coordinate, y-coordinate, blur, color) 文本阴影
-                text-overflow ellipse, clip
+                text-overflow ellipsis, clip
                 line-height 行高，文本默认在行高中垂直居中
                 letter-space 字符间距
                 word-space 单词间距， 浏览器以空格作为单词的分界
