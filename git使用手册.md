@@ -9,6 +9,7 @@
 	* git init
 2. 添加新文件到暂存区
 	 - git add test.txt 或者 git add *
+	 - git add .
 3. 设置git仓库的配置信息
 	 - git config --global user.name "Irick"
 	 - git config --global user.email "lucasbollute@sina.com"
@@ -22,14 +23,21 @@
 	```
 5. 常用命令
 	- git status  `查看三个工作区的文件状态`
-	- git branch `查看有多少个分支`
+	- git branch `查看本地有多少个分支`
+	- git branck -a `查看所有分支包括远程`
+	- 
 	- git checkout -b feature_x  `创建工作区的一个分支`
 	- git merge feature_x	`将分支中的修改合并到主工作分支,合并过程中产生冲							突需要手动解决`
 	- git checkout master `工作分支进行切换`
-	- git branch -D feature_x `删除已经存在的工作分支`
+	- git branch -D feature_x `强制删除已经存在的工作分支`
+	- git branch -d feature_x `删除已存在的分支，若没有合并则删除失败`
 	- git log `查看提交日志`
 	- git tag v1.0+提交id
 	- git checkout -- hello.txt`使用版本区的文件覆盖工作区的内容`
+	- git reset head filename `取消暂存区文件的改动`
+	- git reset head `撤销暂存区所有的改动 称作复位`
+	- git checkout head `放弃工作区修改，使用版本区的文件`
+	- 
 	- git fetch origin --> git reset --hard origin/master `丢弃本地所有的改动与提交， 使用版本库中的最新内容`
 6. git高级命令：
  	- git rebase master `使用rebase而非merge来拉取上游修改，与merge不同，它不会产生合并提交日志,变基合并会产生一个更加整洁的项目历史`
@@ -51,3 +59,4 @@
 
 ---
 * 查找关注大的项目: stars:>1000
+

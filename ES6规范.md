@@ -48,6 +48,18 @@
 	* Number.parseInt(str); `将以数字开头的字符串转换为数字`
 	* Math.trunc(num);`将浮点数无舍入的砍掉`
 6. Array对象
+	```
+	数组常用方法集合： 
+		•	push()
+		•	pop()
+		•	shift()
+		•	unshift()
+		•	splice()
+		•   slice()
+		•	sort()
+		•	concat()
+		•	reverse()
+	```
 	* Array.from(btns); `将伪数组转换为数组`
 	* Array.of(1,2,3); `将参数转换为数组存储`
 	* Array.find(function(value, index, arr){}) `返回符合条件的数组元素，条件表达式为布尔值,只返回第一个符合条件的值`
