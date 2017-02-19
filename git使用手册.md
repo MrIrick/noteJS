@@ -37,7 +37,14 @@
 	- git reset head filename `取消暂存区文件的改动`
 	- git reset head `撤销暂存区所有的改动 称作复位`
 	- git checkout head `放弃工作区修改，使用版本区的文件`
-	- 
+
+	
+	- 加--hard和不加--hard的区别是，hard是用版本区中的文件来覆盖暂存区和工作区的内容，不加hard只是用来撤销添加到暂存区的文件
+	- git reset --hard HEAD^ `^表示上一个版本的意思，多个^表示会退上几个版本`
+	- git reset --hard 3628164 `回退到某一个提交的版本号`
+	- git reflog `查看所有的提交记录，包括回退之前的版本id`
+	
+
 	- git fetch origin --> git reset --hard origin/master `丢弃本地所有的改动与提交， 使用版本库中的最新内容`
 6. git高级命令：
  	- git rebase master `使用rebase而非merge来拉取上游修改，与merge不同，它不会产生合并提交日志,变基合并会产生一个更加整洁的项目历史`
