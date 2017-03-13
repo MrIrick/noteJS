@@ -55,7 +55,7 @@
 		•	shift()
 		•	unshift()
 		•	splice()
-		•   slice()
+		•  slice()
 		•	sort()
 		•	concat()
 		•	reverse()

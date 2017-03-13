@@ -9,7 +9,9 @@
 	* git init
 2. 添加新文件到暂存区
 	 - git add test.txt 或者 git add *
-	 - git add .
+	 - git add -a 保存所有的修改
+	 - git add . 添加所有新建和修改， 但是不包括删除
+	 - git add -u 添加所有文件包括删除，但是不包括新建
 3. 设置git仓库的配置信息
 	 - git config --global user.name "Irick"
 	 - git config --global user.email "lucasbollute@sina.com"
@@ -50,6 +52,8 @@
  	- git rebase master `使用rebase而非merge来拉取上游修改，与merge不同，它不会产生合并提交日志,变基合并会产生一个更加整洁的项目历史`
 	- git stash`临时保存暂时不想提交的修改，以便切换分支`
 	- git stash list`列出修改栈中未完成的工作状态`
+	- git stash pop stash@id `弹出某一个固定的未完成工作状态`
+	- git stash apply stash@{id} `同上`
 	- git stash pop`取回之前的工作状态，继续完成未完成的工作`
 	- $ git stash save "describe it"   # give the stash a name
 	- git stash clear          # delete a stashed commit
