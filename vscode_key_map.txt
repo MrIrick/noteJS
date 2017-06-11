@@ -1,0 +1,17 @@
+// 将键绑定放入此文件中以覆盖默认值
+[
+    { "key": "cmd+1", "command": "workbench.action.toggleZenMode" },
+    {
+        "key": "cmd+f2",
+        "command": "extension.openWith",
+        { "key": "cmd+f1", "command": "extension.openWithDefault" },
+        { "key": "cmd+d", "command": "editor.action.deleteLines" } ,
+        {
+            "key": "ctrl+r",
+            "command": "editor.action.copyLinesDownAction",
+            "when": "editorTextFocus && !editorReadonly"
+        },
+        { "key": "cmd+shift+f",  "command": "editor.action.formatDocument"},
+        { "key": "cmd+shift+f",  "command": "editor.action.formatSelection"}
+    }
+]

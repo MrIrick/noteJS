@@ -39,6 +39,20 @@
 	* startsWith(str) //判断字符串是否是以指定字符串开头
 	* endsWidth(str) //判读是否以指定字符串结尾
 	* repeat(num) //字符串重复多次
+	* stringValue.localeCompare("brick") 1,0,-1 //之后，相等，之前
+	* fromCharCode() `这个方法的任务是接受一个或者多个字符编码，转换成一个字符串`
+	* encodeURI() `会保留url中的英文字符和url中的特殊字符`
+	* encodeURIComponent() `会编码任何非英文字符的字符，包括url里面的一些问好斜杠等特殊字符`
+		```
+			一般来说，我们使用encodeURIComponent()比encodeURI()更加频繁，因为在实践中更常见的是对查询字符串参数而不是对基础uri进行编码
+
+		```
+	* decodeURI `与上面的encodeURI对应只能解码encodeURI编码的字符`
+	* decodeURIComponent() `与上面的方法对应`
+
+ 	
+
+
 	
 5. Number对象扩展
  
@@ -151,4 +165,10 @@
 	* 伪数组
 	* 对象
 	
+11. 对象的四个属性
+	* configurable 
+	* enumerable 
+	* writable
+	* value
+	*
 
