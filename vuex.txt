@@ -1,0 +1,19 @@
+	◦	Vuex组成
+	state //数据状态
+	mutation //状态变更内部组件对状态的变更时通过提交commit来调用mutation中的方法实现的，不能直接修改state
+			调用mutation中的方法也可以直接给被调用handler传递参数，mutation中的所有方法第一参数都是state			一条重要的原则就是要记住 mutation 必须是同步函数
+	getters	//相当于组件中的computed，可以直接调用
+	actions: Action类似于mutation 不同之处在于Action提交的是mutation，而不是直接变更状态。 Action可以包含任			异步操作
+			Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 						context.commit 提交一个 mutation，或者通过 context.state 和 context.getters 来获取 state 和 					getters。当我们在之后介绍到 Modules 时，你就知道 context 对象为什么不是 store 实例本身了。
+
+	◦	Vuex 并不限制你的代码结构。但是，它规定了一些需要遵守的规则：
+	1.	应用层级的状态应该集中到单个 store 对象中。 
+	2.	提交 mutation 是更改状态的唯一方法，并且这个过程是同步的。 
+	3.	异步逻辑都应该封装到 action 里面。
+	4.	
+	5.	
+	6.	http://page.peisong.meituan.com/api/monitor/zb/api/pressure?type=4&proxyRegionId=-1&proxyAreaId=-1&proxyPartitionId=-1&jmRegionId=-1&jmGroupId=-1&cityId=-1&regionId=-1&branchId=-1&areaId=-1&orgId=-1
+	7.	
+	8.	http://page.peisong.meituan.com/api/monitor/api/pressure?type=4&proxyRegionId=-1&proxyAreaId=-1&proxyPartitionId=-1&jmRegionId=-1&jmGroupId=-1&cityId=-1&regionId=-1&branchId=-1&areaId=-1&orgId=-1 
+
+

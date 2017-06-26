@@ -80,7 +80,7 @@
 
 1. 声明式依赖注入就是一种对内置服务的引用
 		$rootScope, $scope, $routParams, $filter, $timeout, $interval 
-2. 控制器不断检查注入其中的域模型对象中数据进行脏数据检查，来实时的更新view中的数据，js原生代码中对域模型对象数据的修改，angular不会对其中数据的修改进行脏数据检查
+2. 控制器不断检查注入其中的域模型对象中数据进行脏数据检查，来实时的更新view中的数据，js原生代码中对域模型对象数据的修改，angular不会对其中数据的修改进行脏值检查
 
 3. 自定义服务的几种方式：
 	* factory() : 工厂函数，可以返回对象或者函数
@@ -141,7 +141,7 @@
 
 
 ### Angular对象常用方法
-	    module() : 创建模型对象
+	    	module() : 创建模型对象
         element() : 将dom对象/html标签包装为jQuery对象
         forEach() : 遍历数组和元素集合伪数组
         toJson()和fromJson() : js对象与Json字符串相互转换

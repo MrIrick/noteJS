@@ -1,0 +1,168 @@
+Vue
+	◦	Vue组件必须应用到vue对象管理的页面视图内部，不然不会生效
+	◦	在 Vue 里，一个组件实质上是一个拥有预定义选项的一个 Vue 实例：
+	◦	现在你只需知道所有的 Vue.js 组件其实都是被扩展的 Vue 实例。
+	◦	每个 Vue 实例都会代理其 data 对象里所有的属性: let data = {a : 1} ,vm = new Vue({data : data}) vm.a === data.a 
+	◦	注意只有这些被代理的属性是响应的。如果在实例创建之后添加新的属性到实例上，它不会触发视图更新。
+	◦	除了 data 属性， Vue 实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 $，以便与代理的 data 属性区分。
+	◦	在底层的实现上， Vue 将模板编译成虚拟 DOM 渲染函数。结合响应系统，在应用状态改变时， Vue 能够智能地计算出重新渲染组件的最小代价并应用到 DOM 操作上。
+	◦	如果你熟悉虚拟 DOM 并且偏爱 JavaScript 的原始力量，你也可以不用模板，直接写渲染（render）函数，使用可选的 JSX 语法。
+	◦	双大括号会将数据解释为纯文本，而非 HTML 。为了输出真正的 HTML ，你需要使用 v-html 指令：
+	◦	<div v-html="rawHtml"></div>被插入的内容都会被当做 HTML —— 数据绑定会被忽略。
+	◦	Mustache 不能在 HTML 属性中使用，应使用 v-bind 指令：
+	◦	指令（Directives）是带有 v- 前缀的特殊属性。
+	◦	元素的普通属性只能是静态字符串，通过vue绑定属性，可以绑定动态表达式
+	◦	指令的职责就是当其表达式的值改变时相应地将某些行为应用到 DOM 上。
+	◦	一些指令能接受一个“参数”，v-bind 指令被用来响应地更新 HTML 属性：<a v-bind:href="url"></a>
+	◦	在这里 href 是参数，告知 v-bind 指令将该元素的 href 属性与表达式 url 的值绑定。
+	◦	修饰符：.prevent
+	◦	过滤器应该被添加在 mustache 插值的尾部，由“管道符”指示：
+	◦	Vue 2.x 中，过滤器只能在 mustache 绑定和 v-bind 表达式（从 2.1.0 开始支持）中使用，因为过滤器设计目的就是用于文本转换。为了在其他指令中实现更复杂的数据变换，你应该使用计算属性。
+	◦	过滤器函数总接受表达式的值作为第一个参数。
+	◦	v- 前缀在模板中是作为一个标示 Vue 特殊属性的明显标识。
+	◦	计算属性，我们提供的函数将作为计算属性的getter
+	◦	我们可以通过调用表达式中的methods来达到同样的效果，不同的是计算属性是基于它的依赖缓存。计算属性只有在它的相关依赖发生改变时才会重新取值。相比而言，每当重新渲染的时候，method 调用总会执行函数。
+	◦	Vue.js 提供了一个方法 $watch ，它用于观察 Vue 实例上的数据变动。
+	◦	计算属性默认只有 getter ，不过在需要时你也可以提供一个 setter ：
+computed: {
+  fullName: {
+    // getter
+    get: function () {
+      return this.firstName + ' ' + this.lastName
+    },
+    // setter
+    set: function (newValue) {
+      var names = newValue.split(' ')
+      this.firstName = names[0]
+      this.lastName = names[names.length - 1]
+    }
+  }
+getAnswer: _.debounce(
+     // _.debounce 是一个通过 lodash 限制操作频率的函数。
+    // 在这个例子中，我们希望限制访问yesno.wtf/api的频率
+    // ajax请求直到用户输入完毕才会发出
+    // 学习更多关于 _.debounce function (and its cousin
+    // _.throttle), 参考: https://lodash.com/docs#debounce
+
+      function () {
+        .
+        .
+        .   
+
+     }
+      // 这是我们为用户停止输入等待的毫秒数
+      500
+    )
+	◦	Loadsh
+	◦	Axios
+	◦	当你在一个定制的组件上用到 class 属性的时候，这些类将被添加到根元素上面，这个元素上已经存在的类不会被覆盖。
+	◦	当使用:class和:style来强制绑定一个样式的时候，如果想通过条件的方式来使用样式，必须通过对象的方式
+	◦	我们用 v-for 指令根据一组数组的选项列表进行渲染。
+	◦	v-for 块中，我们拥有对父作用域属性的完全访问权限。 v-for 还支持一个可选的第二个参数为当前项的索引
+	◦	在遍历对象时，是按 Object.keys() 的结果遍历，但是不能保证它的结果在不同的 JavaScript 引擎下是一致的。
+	◦	v-for遍历数组 v-for=“(value, index) in persons”
+	◦	v-for遍历对象v-for=“(value, key , index) in person” value:属性值，key:属性名， index: 属性索引
+	◦	v-for整数迭代<span v-for="n in 10">{{ n }}</span>
+	◦	组件其实就是对一段html片段的封装，他代表的还是html元素，但是对元素的功能进行了封装，主要是数据流的友好访问
+	◦	通过$emit()触发事件，事件名必须全部小写
+	◦	使用v-for遍历数组或者对象，必须给每个列添加一个key，因为它是 Vue 识别节点的一个通用机制， key 并不特别与 v-for 关联，key 还具有其他用途，我们将在后面的指南中看到其他用途。
+	◦	由于 JavaScript 的限制， Vue 不能检测以下变动的数组：
+       1. 当你利用索引直接设置一个项时，例如： vm.items[indexOfItem] = newValue
+       2. 当你修改数组的长度时，例如： vm.items.length = newLength
+       第一种情况使用Vue.set(example1.items, indexOfItem, newValue)替代
+       第二种情况使用example1.items.splice(newLength)替代
+	◦	事件修饰符
+	•	.stop。//阻止事件冒泡
+	•	.prevent  // 阻止事件的默认行为
+	•	.capture  //开启事件捕获模式
+	•	.self //事件发生在当前元素身上而不是子元素身上
+	•	.once
+	•	.native
+	◦	按键修饰符
+	•	.enter
+	•	.tab
+	•	.delete (捕获 “删除” 和 “退格” 键)
+	•	.esc
+	•	.space
+	•	.up
+	•	.down
+	•	.left
+	•	.right
+	◦	你可以用 v-model 指令在表单控件元素上创建双向数据绑定。它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖，它负责监听用户的输入事件以更新数据，并特别处理一些极端的例子。
+	◦	多个checkbox和multiple下拉列都会绑定到一个数组当中，所以要在作用域内开辟一个数组
+	◦	v-model修饰符lazy
+	◦	在默认情况下， v-model 在 input 事件中同步输入框的值与数据 (除了 上述 IME 部分)，但你可以添加一个修饰符 lazy ，从而转变为在 change 事件中同步：<input v-model.lazy="msg" >
+	◦	<input v-model.number="age" type="number">将用户的输入值转为 Number 类型（如果原值的转换结果为 NaN 则返回原值）
+	◦	<input v-model.trim="msg">自动过滤用户输入的首尾空格，可以添加 trim 修饰符到 v-model 上过滤输入
+
+组件
+	◦	组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码。在较高层面上，组件是自定义元素， Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以是原生 HTML 元素的形式，以 is 特性扩展。
+	◦	Dom模版解析说明
+当使用 DOM 作为模版时（例如，将 el 选项挂载到一个已存在的元素上）, 你会受到 HTML 的一些限制，因为 Vue 只有在浏览器解析和标准化 HTML 后才能获取模版内容。尤其像这些元素 <ul> ， <ol>， <table> ， <select> 限制了能被它包裹的元素， <option> 只能出现在其它元素内部。
+	◦	使用vue组件渲染模版的时候会受到html本身特性的一些限制，因为vue只有在浏览器解析和标准化html结构之后才能获取模版中的内容，尤其像这些元素ul, ol, table, select限制了能被他包裹的元素，例如：
+      <table>
+           <my-row>...</my-row>
+      </table>
+      自定义组件 <my-row> 被认为是无效的内容，因此在渲染的时候会导致错误。变通的方案是使用特殊的 is 属性：
+     <table>
+        <tr is="my-row"></tr>
+     </table>
+	◦	组件意味着协同工作，通常父子组件会是这样的关系：组件 A 在它的模版中使用了组件 B 。它们之间必然需要相互通信：父组件要给子组件传递数据，子组件需要将它内部发生的事情告知给父组件。然而，在一个良好定义的接口中尽可能将父子组件解耦是很重要的。这保证了每个组件可以在相对隔离的环境中书写和理解，也大幅提高了组件的可维护性和可重用性。
+	◦	在 Vue.js 中，父子组件的关系可以总结为 props down, events up 。父组件通过 props 向下传递数据给子组件，子组件通过 events 给父组件发送消息。看看它们是怎么工作的。
+	◦	prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。
+	◦	注意在 JavaScript 中对象和数组是引用类型，指向同一个内存空间，如果 prop 是一个对象或数组，在子组件内部改变它会影响父组件的状态。
+	•	使用 $on(eventName) 监听事件
+	•	使用 $emit(eventName) 触发事件
+	◦	另外，父组件可以在使用子组件的地方直接用 v-on 来监听子组件触发的事件。
+	◦	v-ref是用来注册子组件的索引
+	◦	v-el是用来注册dom节点的索引
+	◦	v-if和v-else配合使用，中间不能隔任何元素，包括原生标签
+	◦	非父子组件之间进行通信，铜鼓空的vue实例作为中央控制中心，进行事件的发射和捕获
+	◦	Slot作为组件内容的备用插槽，如果没有内容那么slot的内容才会显示出来,在构建组件的过程中允许外部调用组件的时候，往组件内部组合内容
+	◦	使用动态组件可以在同一个挂载点切换不同的组件显示，相当于路由spa
+
+指令：
+	自定义标签属性，他会给标签添加一些特殊的行为， 一般情况下，标签是静态的，不能跟数据实时交互，我们通过自定义属性来实现这种交互
+
+v-else元素是否渲染在HTML中，取决于前面使用的是v-if还是v-show指令。
+v-if
+v-show
+v-else
+v-for : v-for指令基于一个数组渲染一个列表，它和JavaScript的遍历语法相似：
+v-bind
+v-on
+
+如果组件实例只会被创建一次，那么data属性可以是一个对象，若组件实例会被创建多次，那么data属性必须是一个函数，返回当前实例代理的data数据
+
+
+Vue生命周期钩子函数的上下文对象自动绑定到vue实例上，	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
