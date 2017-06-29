@@ -1,0 +1,54 @@
+[user]
+	name = chihaiping
+	email = chihaiping@meituan.com
+[color]
+   ui = auto
+   branch = auto
+   diff = auto
+   status = auto
+[color "branch"]
+   current = green
+   local = yellow
+   remote = red
+[color "diff"]
+   meta = yellow bold
+   frag = magenta bold
+   old = red bold
+   new = green bold
+[color "status"]
+   added = yellow
+   changed = green
+   untracked = cyan
+[alias]
+   di = diff
+   ci = commit
+   co = checkout
+	br = branch
+   gst = git status
+	unstage = reset HEAD
+	lst =log -1
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  gba = git branch -a 
+  gbl = git blame -b -w
+	cmt = commit
+  cout = git checkout
+  dif = git diff 
+  diffca = git diff --cached
+  fh  = git fetch
+  ad = git add
+	st = status
+	last = log -1
+[core]
+	editor = vim
+	excludesfile = /Users/chihp/.gitignore_global
+[i18n]
+	commitencoding = iso-8859
+	logoutputencoding = iso-8859
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/chihp/.stCommitMsg
