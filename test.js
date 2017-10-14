@@ -1,5 +1,3 @@
-console.log('helloworld') ;
-
 console.log('welcome to china')
 
 function test()
