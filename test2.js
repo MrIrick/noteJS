@@ -9,3 +9,5 @@ http.createServer(function(req, res){
 	console.log('server is starting')
 	}
 )
+
+console.log('is am right')
