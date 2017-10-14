@@ -8,4 +8,4 @@ function test()
 
 console.log('哈哈哈哈哈哈哈')
 
-
+console.log('welcome to china')
