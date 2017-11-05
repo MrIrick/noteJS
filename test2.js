@@ -9,5 +9,7 @@ http.createServer(function(req, res){
 	console.log('server is starting')
 	}
 )
-
+funcion test() {
+	console.log('hello world')
+}
 console.log('is am right')
