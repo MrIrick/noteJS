@@ -35,14 +35,14 @@
 			var person = {name:'zhangsan', age:22};
 			console.log('hello' + person.name);
 			console.log(`hello ${person.name}`);
-	* contains(str) //判断是否包含指定字符串
+	* includes(str) //判断是否包含指定字符串
 	* startsWith(str) //判断字符串是否是以指定字符串开头
 	* endsWidth(str) //判读是否以指定字符串结尾
 	* repeat(num) //字符串重复多次
 	* stringValue.localeCompare("brick") 1,0,-1 //之后，相等，之前
 	* fromCharCode() `这个方法的任务是接受一个或者多个字符编码，转换成一个字符串`
-	* encodeURI() `会保留url中的英文字符和url中的特殊字符`
-	* encodeURIComponent() `会编码任何非英文字符的字符，包括url里面的一些问好斜杠等特殊字符`
+	* encodeURI() `会保留url中的英文字符和url中的特殊字符, 保留特殊字符和英文字符` 
+	* encodeURIComponent() `会编码任何非英文字符的字符，包括url里面的一些问好斜杠等特殊字符，只保留英文字符`
 		```
 			一般来说，我们使用encodeURIComponent()比encodeURI()更加频繁，因为在实践中更常见的是对查询字符串参数而不是对基础uri进行编码
 
@@ -61,6 +61,8 @@
 	* Number.isNumber(num);`判断结构是否是Number类型数字`
 	* Number.parseInt(str); `将以数字开头的字符串转换为数字`
 	* Math.trunc(num);`将浮点数无舍入的砍掉`
+	* Number.prototype.toFixed()`保留几位小数`
+	* Number.prototype.toPrecision() `保留几位有效数字`
 6. Array对象
 	```
 	数组常用方法集合： 
@@ -158,17 +160,18 @@
 		- entries();
 10. for...of循环
 		这个循环返回一个迭代器，所有可以循环遍历的对象都可以使用for...of进行遍历
-
 	* 数组
 	* 集合set map
 	* 字符串
 	* 伪数组
 	* 对象
 	
-11. 对象的四个属性
+11. 对象的四个属性描述符
 	* configurable 
 	* enumerable 
 	* writable
 	* value
-	*
+	* set
+	* get
+	
 
