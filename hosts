@@ -1,0 +1,68 @@
+# SwitchHosts! v3.3.4.5228
+
+# superfans
+
+#超粉本地开发环境
+#127.0.0.1	js.t.test.sinajs.cn
+127.0.0.1   	test.weibo.com
+10.210.130.43 js.t.test.sinajs.cn
+
+#超粉后端环境
+10.210.130.43	superfans.test.weibo.com
+
+#10.13.4.162	superfans.test.weibo.com
+127.0.0.1	weiboad.org
+
+
+
+# 品速
+
+#话题，热推，品速客户端环境
+
+#话题cpd测试kaifa环境后端
+10.13.4.162	 cpd.test.162.weibo.com
+#qa 测试环境后端
+10.210.238.84 	cpd.weibo.com
+
+#品速后端环境
+10.13.4.162     brand.test.162.weibo.com
+
+#QA测试环境
+10.210.130.43   brand.weibo.com
+
+
+
+#我的电脑
+# 127.0.0.1       e.sinajs.cn
+#10.237.36.99	e.sinajs.cn
+10.210.241.143	e.sinajs.cn
+#QA环境
+# 10.210.130.43  e.sinajs.cn
+
+# 角标和热推后端环境
+
+#角标
+10.13.4.162	vh.test.weibo.com
+
+#热推后端环境
+#127.0.0.1	hotfeed.dev.weibo.com   
+#海程电脑后端环境
+#10.236.37.22 	hotfeed.dev.weibo.com
+#热推cpd测试环境
+10.13.4.162 	hotfeed.test.weibo.com  
+
+# 10.210.130.43   hotfeed.test.weibo.com
+
+ # replicad 翻版广告
+
+127.0.0.1 replicad.test.weibo.com
+
+#convert link
+#10.236.37.20 tool4ad.test.weibo.com
+10.210.130.43 tool4ad.biz.weibo.com
+#10.236.37.27 tool4ad.biz.weibo.com
+10.13.4.162 	feed.test.weibo.com
+
+
+# replicad
+10.13.4.162  videopanel.test.162.weibo.com
