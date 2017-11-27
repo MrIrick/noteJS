@@ -9,7 +9,7 @@
 -b.使用String()包装函数（底层也是通过调用toString方法）
   
 String()函数可以将任何一种类型的数据转换成字符串
-null和defined两种类型js引擎不提供toString()方法，所以只能通过包装函数String()进行
+null和undefined两种类型js引擎不提供toString()方法，所以只能通过包装函数String()进行
 
 
 2、将其他类型的数据转换为Number
