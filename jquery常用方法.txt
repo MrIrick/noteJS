@@ -116,6 +116,8 @@ $("p").not(".intro");
 
 设置事件委托: $(parentSelector).delegate(childrenSelector, eventName, callback)
 移除事件委托: $(parentSelector).undelegate(eventName);
+$(parentSelector).on(eventName, childrenSelector, callback)
+$(parentSelector).off(eventName)
 
 jQuery validation 
 {

@@ -118,8 +118,8 @@ DOM属性
 		在元素上点击 
 		加载页面 
 		改变输入字段 
-		-a
-		<html>
+		-a	
+		<html>	
 			<body>
 				<input type="button" onclick="document.body.style.backgroundColor='lavender';"
 				value="Change background color" />
@@ -280,7 +280,7 @@ document.images.length
 
 Event对象 
 event.clientX
-event.client-Y
+event.clientY
 获得鼠标相对于浏览器可见窗口的横纵坐标
 
 获得屏幕的横纵坐标

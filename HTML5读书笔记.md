@@ -35,7 +35,7 @@
 3. Web存储, HTML5提供了两种客户端存储数据的方法：
 	* localStorage 没有时间限制的存储
 	* sessionStorage  针对一个session对象的数据存储
-之前，这些都是由 cookie 完成的。但是 cookie 不适合大量数据的存储，因为它们由每个对服务器的请求来传递，这使得 cookie 速度很慢而且效率也不高,在 HTML 5 中，数据不是由每个服务器请求传递的，而是只有在请求时使用数据。它使在不影响网站性能的情况下存储大量数据成为可能。
+之前，这些都是由 cookie 完成的。但是 cookie 不适合大量数据的存储，因为它们由每个对服务器的请求来传递，这使得 cookie 速度很慢而且效率也不高,在 HTML5 中，数据不是由每个服务器请求传递的，而是只有在请求时使用数据。它使的在不影响网站性能的情况下存储大量数据成为可能。
 	localStorage.lastName = 'helloworld' ; //设值
 	var value = localStorage.lastName ;  //取值
 
@@ -57,3 +57,4 @@
 		- placeholder
 		- required
 		- 
+

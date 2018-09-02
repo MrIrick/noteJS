@@ -29,7 +29,7 @@
 	- git branck -a `查看所有分支包括远程`
 	- 
 	- git checkout -b feature_x  `创建工作区的一个分支`
-	- git merge feature_x	`将分支中的修改合并到主工作分支,合并过程中产生冲							突需要手动解决`
+	- git merge feature_x	`将分支中的修改合并到当前工作分支,合并过程中产生冲							突需要手动解决`
 	- git checkout master `工作分支进行切换`
 	- git branch -D feature_x `强制删除已经存在的工作分支`
 	- git branch -d feature_x `删除已存在的分支，若没有合并则删除失败`
@@ -62,9 +62,11 @@
 1. 常用命令：
 	- git clone url `克隆远程仓库到本地，并且建立连接`
 	- git remote add origin url `和远程仓库创建连接`
+	- git remote origin set-url [url]
 	- git remote rm origin `删除和远程仓库的连接`
 	- git push origin master `将本地版本区的内容推送到远程仓库`
 	- git pull origin master`更新远程仓库中的内容到本地`
+
 2. 使用公钥和私钥和远程仓库创建连接
 
 

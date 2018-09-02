@@ -16,7 +16,7 @@ $ npm run build
 # 等同于执行
 $ node build.js
 这些定义在package.json里面的脚本，就称为 npm 脚本。
-```
+```  
 * 项目的相关脚本，可以集中在一个地方。
 * 不同项目的脚本命令，只要功能相同，就可以有同样的对外接口。用户不需要知道怎么测试你的项目，只要运行npm run test即可。
 * 可以利用 npm 提供的很多辅助功能。
@@ -67,3 +67,4 @@ $ node build.js
 "build:favicon": "node scripts/favicon.js",
 
 ```
+

@@ -61,7 +61,7 @@
 	* Number.isNumber(num);`判断结构是否是Number类型数字`
 	* Number.parseInt(str); `将以数字开头的字符串转换为数字`
 	* Math.trunc(num);`将浮点数无舍入的砍掉`
-	* Number.prototype.toFixed()`保留几位小数`
+	* Number.prototype.toFixed()`四舍五入保留几位小数`
 	* Number.prototype.toPrecision() `保留几位有效数字`
 6. Array对象
 	```
@@ -89,7 +89,7 @@
 	* Array.indexOf()
 	* Array.lastIndexOf()
 	* Array.fill(value, startIndex, lastIndex)
-	* array.every(function(num){return num % 2 === 0}) `判断一个数组是否全部符合某个条件
+	* array.every(function(num){return num % 2 === 0}) `判断一个数组是否全部符合某个条件`
 	* some() `方法也接受一个返回值为布尔类型的函数， 只要有一个元素使得该函数返回 true，该方法就返回 true` array.some(function(num){return num % 2 === 0})
 	* array.reduce(function(sum, num){return sum + num}) `可以对数组进行求和`
 	* array.reduceRight(function(sum, num){return sum + num})`从数组末尾倒着计算，常用来将字符数组倒叙`
@@ -134,7 +134,7 @@
 		function addPerson(x = 0, y = 1)
 		{
 			this.x = x ;
-			this.y = y ;
+	⁃		this.y = y ;
 		}
 		```
 	* 可变参数
@@ -155,7 +155,7 @@
 		- has(key);
 		- clear()
 		- size;
-		- key(); `返回所有key的一个`
+		- keys(); `返回所有key的一个`
 		- values()
 		- entries();
 10. for...of循环

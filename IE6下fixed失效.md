@@ -1,6 +1,6 @@
 #IE6下fixed失效问题
 ## overflow
-- overflow 有三个属性
+   - overflow 有三个属性
 	- scroll 出现滚动条，不管内容有没有溢出都会出现难看的滚动条边框
 	- auto 只有内容溢出时才会出现
 	- hidden 溢出的内容会被隐藏，且滚动条被禁止出现
@@ -27,7 +27,7 @@
 		</style>
 		<div id="box1"></div>  
 从浏览器渲染的效果看，当单独给html或者body设置overflow属性时，滚动条并没有加在html或body本身上，而是加到了document上。
-但是，当同时给body或html添加overflow属性时，滚动条加在了body上。
+但是，当同时给body和html添加overflow属性时，滚动条加在了body上。
 ## 利用overflow加absolute模拟fixed
 		<style>
 		*{
@@ -80,3 +80,4 @@
 			}
 		</script>  
 动态的计算出滚动条滚动的距离，也就是body往上走的距离，让后把这个距离添加给absolute的元素，让它跟着移动相应距离。
+
