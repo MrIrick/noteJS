@@ -8,10 +8,10 @@ html文本的每个元素节点都是一个dom对象
 	一些常用的 HTML DOM 方法：
 
 	getElementById(id) - 获取带有指定 id 的节点（元素） 
-	appendChild(node) - 插入新的子节点（元素） 
-	removeChild(node) - 删除子节点（元素）
-	replaceClild(newNode, node)
-	inserBefore(newNode node);
+	parentNode.appendChild(node) - 插入新的子节点（元素） 
+	parentNode.removeChild(node) - 删除子节点（元素）
+	parentNode.replaceClild(newNode, node)
+	parentNode.inserBefore(newNode node);
 	一些常用的 HTML DOM 属性：
 
 	innerHTML - 节点（元素）的文本值 

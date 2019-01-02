@@ -3,7 +3,6 @@
   3 read>list=yes
   4 uid=root  `发送文件给rsync服务器上那个用户`
   5 gid=root `发送文件给rsync服务器上那个组`
-  6 use chroot=no
   7 max connections=5
   8 use chroot `在传输文件之前，服务器守护程序在将chroot 到文件系统的目录中`
   8 log file=/var/log/rsyncd.log 

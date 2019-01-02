@@ -80,7 +80,7 @@
 	* Array.of(1,2,3); `将参数转换为数组存储`
 	* Array.find(function(value, index, arr){}) `返回符合条件的数组元素，条件表达式为布尔值,只返回第一个符合条件的值`
 	* Array.findIndex(function(value, index, arr){})`返回符合条件的数组元素的下标，同样返回布尔值的条件表达式`
-	* Array.keys()`返回数组下标组成的迭代集合`
+	* Array.keys()`返回数组下标组成的迭代集合, 只返回自身的所有可枚举属性`
 	* Array.values()`返回包含所有数组元素的可迭代集合`
 	* Array.entries();`返回所有key和value的可迭代集合`
 	* Array.map(function(value,index, obj){})
